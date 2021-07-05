@@ -1,0 +1,40 @@
+Ejercicio 4.
+El auto de un amigo de Tulio tiene una llanta pinchada y quieren cambiarla, pero no saben cómo:
+* Diseña un algoritmo en seudocódigo para ayudarlos a cambiar la llanta pinchada
+	
+enunciado_ = "El auto de un amigo de Tulio tiene una llanta pinchada, hay que arreglarla"
+ayudalos_ = "Necesitan ayuda"
+amigo_sabe = false
+tulio_sabe = false
+estado_llanta = false
+buscar_ayuda = true
+pueden_arrancar = false
+buscar_internet = "Buscar el gato hidraulico en el compartimiento de herramientas...."
+llamar_mecanico = false
+cant_llantas = 4
+
+start
+   OUTPUT enunciado_
+   WHILE pueden_arrancar != false
+      OUTPUT ayudalos_
+      IF tulio_sabe == true OR amigo_sabe == true THEN
+         buscar_ayuda = false
+         estado_llanta = true
+      ELSE
+         OUTPUT buscar_internet
+         IF tulio_sabe == true OR amigo_sabe == true THEN
+            buscar_ayuda == false
+	    estado_llanta == true
+         ELSE
+            llamar_mecanico = true
+	    estado_llanta = true
+	 ENDIF
+      ENDIF
+      FOR llanta = 0; llanta <= cant_llantas; llanta ++
+	 IF estado_llanta == false THEN
+ 	    estado_llanta = true
+	 END-IF
+      ENDFOR
+      pueden_arrancar = true
+   ENDWHILE
+stop
