@@ -24,11 +24,12 @@ El segundo representará la cantidad de monedas repetidas detectadas por la máq
 
 # start
 numero_N, numero_K = input().split()
-# N numero de monedas a verificar, K tamaño de la memoria de la maquina
 numero_N = int(numero_N)
 numero_K = int(numero_K)
 
-listaNumeros = input().split()
-for numero in listaNumeros:
-    print(numero)
-print(listaNumeros)
+listaMonedas = input().split()
+repReal = 0
+repDetectadas = 0
+indice = 0
+for moneda in listaMonedas:
+    if moneda == listaMonedas[numero_K]
