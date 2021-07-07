@@ -22,14 +22,49 @@ El primero representará el número real de monedas repetidas.
 El segundo representará la cantidad de monedas repetidas detectadas por la máquina en función de su memoria considerando que esta solo es capaz de guardar en memoria las K monedas anteriores.
 '''
 
-# start
-numero_N, numero_K = input().split()
-numero_N = int(numero_N)
-numero_K = int(numero_K)
+# DESARROLLO DEL EJERCICIO
+# INPUT cantidad de monedas a evaluar, rango para evaluar esas monedas
+valor_n, valor_k = input().split()
+# convertir los valores N y K a enteros
+valor_n = int(valor_n)
+valor_k = int(valor_k)
+# INPUT entrada de la lista de monedas a evaluar
+lista_entrada = input().split()
+# inicia con una lista vacia ListaMonedas
+listaMonedas = []
+# recorre los valores introducidos en la cadena lista_entrada
+for moneda in lista_entrada:
+    # la moneda es diferente a una cadena vacia
+    if moneda != ' ':
+        # convierte el valor str a int
+        m = int(moneda)
+        # agrega el valor convertido en int a la lista vacia ListaMonedas
+        listaMonedas.append(m)
+    # ENDIF
+# ENDFOR  al final de esta lista todas las monedas estaran convertidas y agregadas
+# !!! Hasta este punto el codigo funciona perfectamente !!! #
 
-listaMonedas = input().split()
-repReal = 0
-repDetectadas = 0
-indice = 0
-for moneda in listaMonedas:
-    if moneda == listaMonedas[numero_K]
+listaMonedas2 = listaMonedas[:]  # copio toda la lista en una segunda lista
+cantRepetidas = 0
+contador = 0
+while contador < valor_n:
+    myCoin = listaMonedas[0]
+    del listaMonedas[0]
+    if myCoin in listaMonedas:
+        cantRepetidas += 1
+    contador += 1
+# !!! Hasta este punto el codigo funcion perfectamente !!! #
+
+memoria = 0
+index = 0
+for valor in listaMonedas2:
+    myValue = valor
+    magic = index + valor_k
+    if magic < valor_n:
+        index += 1
+        if myValue in listaMonedas2[index:magic+1]:
+            memoria += 1
+
+
+print(f'{cantRepetidas} {memoria}')
+#  el ejercicio funciona perfectamente, Felicitaciones!!!

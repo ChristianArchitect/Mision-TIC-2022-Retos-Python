@@ -1,77 +1,31 @@
-# numeros = input('escriba numeros: ').split()
-# print(numeros)
-# for numero in numeros:
-#     print(numero)
-#     print(type(numero))
-#     numero = int(numero)
-#     print(numero)
-#     print(type(numero))
+valor_n, valor_k = input().split()
+valor_n = int(valor_n)
+valor_k = int(valor_k)
+lista_entrada = input().split()
+listaMonedas = []
+for moneda in lista_entrada:
+    if moneda != ' ':
+        m = int(moneda)
+        listaMonedas.append(m)
 
-# start
-# numero_N, numero_K = input().split()
-# numero_N = int(numero_N)
-# numero_K = int(numero_K)
-
-
-# listaMonedas = input().split()
-# for m in listaMonedas:
-#     n = int(m)
-#     listaMonedas.append(n)
-#     listaMonedas.remove(m)
-# print(listaMonedas)
-
-
-# codigo util del ejercicio
-# numero_n, numero_k = input().split()
-# numero_n = int(numero_n)
-# numero_k = int(numero_k)
-
-# lista_entrada = input().split()
-# listaMonedas = []
-# for moneda in lista_entrada:
-#     if moneda != ' ':
-#         m = int(moneda)
-#         listaMonedas.append(m)
-
-# rangoMax = numero_k
-# memoriaRep = 0
-# for moneda in listaMonedas:
-#     for index in range(moneda, rangoMax):
-#         if moneda == index:
-#             memoriaRep += 1
-
-# numero_n, numero_k = input().split()
-# numero_n = int(numero_n)
-# numero_k = int(numero_k)
-
-# lista_entrada = input().split()
-# listaMonedas = []
-# for moneda in lista_entrada:
-#     if moneda != ' ':
-#         m = int(moneda)
-#         listaMonedas.append(m)
-
-# listaRepetidos = []
-# listaMonedas = [1, 2, 3, 1, 2, 3, 4, 5]
-# for moneda1 in listaMonedas:
-#     print(moneda1)
-#     bandera = 0
-#     for moneda2 in listaMonedas:
-#         if moneda2 == moneda1:
-#             if moneda1 not in listaRepetidos:
-#                 bandera += 1
-#                 if bandera == 2:
-#                     listaRepetidos.append(moneda1)
-#                     break
-# print(listaRepetidos)
-
-listaMonedas = [1, 2, 3, 1, 2]
-maximo = 3
-encontrado = 0
+listaMonedas2 = listaMonedas[:]
+cantRepetidas = 0
 contador = 0
-iterador = 0
-for numero in listaMonedas:
-    nuevaLista = listaMonedas[numero:numero+maximo]
-    print(nuevaLista)
-    if numero in nuevaLista:
-        print(f'{numero} esta en la lista')
+while contador < valor_n:
+    myCoin = listaMonedas[0]
+    del listaMonedas[0]
+    if myCoin in listaMonedas:
+        cantRepetidas += 1
+    contador += 1
+
+memoria = 0
+index = 0
+for valor in listaMonedas2:
+    myValue = valor
+    magic = index + valor_k
+    if magic <= valor_n:
+        index += 1
+        if myValue in listaMonedas2[index:magic+1]:
+            memoria += 1
+
+print(f'{cantRepetidas} {memoria}')
