@@ -88,5 +88,4 @@ elif realizar_proceso == 'AGREGAR':
     AGREGAR()
 
 # calcular producto mayor, producto menor y promedio
-precioMayor = 0
-for producto in productos
+# HECHO

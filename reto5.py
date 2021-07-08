@@ -56,4 +56,16 @@ for codigo, caracteristicas in productos.items():
 
 print(articuloMenor)
 
-# calculo valor total del inventario
+# Este codigo calcula perfectamente el total del inventario
+# multiplicando cada precio por la cantidad de productos
+listaPrecios = []
+for codigo, caracteristicas in productos.items():
+    inventario = caracteristicas[1] * caracteristicas[2]
+    print(inventario)
+    listaPrecios.append(inventario)
+
+sumaInventario = 0
+for precio in listaPrecios:
+    sumaInventario += precio
+
+print(sumaInventario)
