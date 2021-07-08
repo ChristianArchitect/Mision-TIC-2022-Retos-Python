@@ -1,3 +1,4 @@
+
 productos = {
     1: ['Manzanas', 6000.0, 97],
     2: ['Limones', 2600.0, 45],
@@ -10,6 +11,26 @@ productos = {
     9: ['Chocolates', 4500.0, 990],
     10: ['Jamon', 18000.0, 55],
 }
+print(productos)
+
+
+def BORRAR(codigo, nombre, precio, inventario):
+    '''Esta funcion elimina por completo un producto a partir
+    del valor de su codigo clave'''
+    del productos[codigo]
+
+
+BORRAR(5, 'no importa', 3400.0, 32)
+
+print(productos)
+
+
+# este codigo busca un codigo en las llaves del diccionario para saber si ya esta presente
+codigo = 10
+if codigo not in productos.keys():
+    print('no esta')
+else:
+    print('si esta')
 
 # for valor in productos[1]:
 #     print(f'valor: {valor}')

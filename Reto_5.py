@@ -61,16 +61,21 @@ productos = {
 }
 
 
-def ACTUALIZAR():
-    pass
+def ACTUALIZAR(codigo, nombre, precio, inventario):
+    '''Esta funcion actualiza los valores de un producto existente
+    basando en su codigo de clave'''
+    productos[codigo] = [nombre, precio, inventario]
 
 
-def BORRAR():
-    pass
+def BORRAR(codigo, nombre, precio, inventario):
+    '''Esta funcion elimina por completo un producto a partir
+    del valor de su codigo clave'''
+    del productos[codigo]
 
 
-def AGREGAR():
-    pass
+def AGREGAR(codigo, nombre, precio, inventario):
+    '''Esta funcion agrega un nuevo producto al final del diccionario productos'''
+    productos[codigo] = [nombre, precio, inventario]
 
 
 # ENTRADAS
@@ -81,11 +86,49 @@ precio_prod = float(precio_prod)
 inventario_prod = int(inventario_prod)
 
 if realizar_proceso == 'ACTUALIZAR':
-    ACTUALIZAR()
+    if codigo_prod not in productos.keys():
+        print('ERROR')
+    else:
+        ACTUALIZAR(codigo_prod, nombre_prod, precio_prod, inventario_prod)
 elif realizar_proceso == 'BORRAR':
-    BORRAR()
+    if codigo_prod not in productos.keys():
+        print('ERROR')
+    else:
+        BORRAR(codigo_prod, nombre_prod, precio_prod, inventario_prod)
 elif realizar_proceso == 'AGREGAR':
-    AGREGAR()
+    if codigo_prod in productos.keys():
+        print('ERROR')
+    else:
+        AGREGAR(codigo_prod, nombre_prod, precio_prod, inventario_prod)
 
-# calcular producto mayor, producto menor y promedio
-# HECHO
+precioMayor = 0
+for codigo, caracteristicas in productos.items():
+    if caracteristicas[1] > precioMayor:
+        articuloMayor = caracteristicas[0]
+        precioMayor = caracteristicas[1]
+
+precioMenor = precioMayor
+for codigo, caracteristicas in productos.items():
+    if caracteristicas[1] < precioMenor:
+        articuloMenor = caracteristicas[0]
+        precioMenor = caracteristicas[1]
+
+sumador = 0
+for codigo, caracteristicas in productos.items():
+    sumador += caracteristicas[1]
+promedioPrecios = sumador / 10
+
+listaPrecios = []
+for codigo, caracteristicas in productos.items():
+    inventario = caracteristicas[1] * caracteristicas[2]
+    listaPrecios.append(inventario)
+
+sumaInventario = 0
+for precio in listaPrecios:
+    sumaInventario += precio
+
+
+print(f'{articuloMayor} {articuloMenor} {promedioPrecios} {sumaInventario}')
+
+
+def RetoCincoProgramaCompleto(codigo, nombre, precio, inventario):
