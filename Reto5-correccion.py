@@ -60,7 +60,8 @@ def RetoCincoProgramaCompleto(proceso, codigo, nombre, precio, inventario):
         for precio in listaPrecios:
             sumaInventario += precio
 
-        print(f'{articuloMayor} {articuloMenor} {promedioPrecios} {sumaInventario}')
+        print(
+            f'{articuloMayor} {articuloMenor} {promedioPrecios:.1f} {sumaInventario:.1f}')
 
 
 realizar_proceso = input()
@@ -70,5 +71,4 @@ precio_prod = int(precio_prod)
 inventario_prod = int(inventario_prod)
 
 
-RetoCincoProgramaCompleto(realizar_proceso, codigo_prod,
-                          nombre_prod, precio_prod, inventario_prod)
+RetoCincoProgramaCompleto(realizar_proceso, codigo_prod, nombre_prod, precio_prod, inventario_prod)
